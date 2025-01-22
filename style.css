@@ -5,9 +5,9 @@
   #2a432e (darker green)
   #BF8139 (light rust)
   #7d5425 (rust)
-  #ECD9BA (very light grayish brown)
   #3C3B39 (gray)
   #2b2b2b (dark gray)
+  #8a837a (light gray)
 */
 
 * {
@@ -84,6 +84,9 @@ button {
   border-radius: 8px;
   border-top: solid #2b2b2b;
   border-right: solid #2b2b2b;
+  color: #8a837a;
+  padding: 20px;
+  font-size: 40px;
 }
 
 .row {
