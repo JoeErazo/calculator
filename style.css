@@ -1,0 +1,80 @@
+/* 
+  Color palette: 
+  #6A8040 (light green)
+  #3D5E42 (dark green)
+  #2a432e (darker green)
+  #867E36 (brownish green)
+  #BF8139 (light rust)
+  #7d5425 (rust)
+  #ECD9BA (very light grayish brown)
+  #3C3B39 (gray)
+  #2b2b2b (dark gray)
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  color: #3C3B39;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #3D5E42;
+}
+
+button {
+  font-size: 30px;
+  padding: 16px 24px;
+  background-color: #BF8139;
+  border-radius: 8px;
+  border-top: none;
+  border-right: none;
+  border-left: solid #7d5425;
+  border-bottom: solid #7d5425;
+}
+
+#calc-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 400px;
+  height: 85vh;
+  padding: 30px;
+  gap: 30px;
+  background-color: #6A8040;
+  border-radius: 18px;
+  border-left: 4px solid #2a432e;
+  border-bottom: 4px solid #2a432e;
+}
+
+#calc-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+#calc-display {
+  flex-grow: 1;
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: #3C3B39;
+  border-radius: 8px;
+  border-top: solid #2b2b2b;
+  border-right: solid #2b2b2b;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#equal {
+  flex-grow: 1;
+}
