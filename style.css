@@ -36,6 +36,7 @@ button {
   border-right: none;
   border-left: solid #7d5425;
   border-bottom: solid #7d5425;
+  font-family: "Source Code Pro", sans-serif;
 }
 
 #calc-body {
@@ -89,10 +90,6 @@ button {
   display: flex;
   justify-content: center;
   gap: 20px;
-}
-
-#equal {
-  flex-grow: 1;
 }
 
 footer {
