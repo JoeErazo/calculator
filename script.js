@@ -1,5 +1,13 @@
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
+let operatorActive = false;
+const calcDisplay = document.querySelector("#calc-display");
+const operators = "+-x/";
+const digits = "0123456789";
+
 function add(a, b){
-  return a + b;
+  return Number(a) + Number(b);
 }
 
 function subtract(a, b){
@@ -20,7 +28,7 @@ function operate(a, op, b){
       return add(a, b);
     case '-':
       return subtract(a, b);
-    case '*':
+    case 'x':
       return multiply(a, b);
     case '/':
       return divide(a, b);
@@ -29,5 +37,76 @@ function operate(a, op, b){
   } 
 }
 
-let firstNumber, operator, secondNumber;
+function displayValue(value){
+  calcDisplay.textContent = value;
+}
+
+function clearDisplay(){
+  calcDisplay.textContent = "";
+}
+
+function registerInput(){
+  // clear button
+  if(this.value === "clr"){
+    if(secondNumber){
+      secondNumber = "";
+      clearDisplay();
+      // operatorActive = false;
+    }
+    else{
+      firstNumber = "";
+      secondNumber = "";
+      operator = "";
+      operatorActive = false;
+      clearDisplay();
+    }
+    return;
+  }
+
+  // number last pressed
+  if(!operatorActive){
+    // number pressed
+    if(digits.includes(this.value)){
+      secondNumber += this.value;
+      displayValue(secondNumber);
+    }
+    // equal button
+    else if(this.value === "="){
+      if(firstNumber && !operatorActive){
+        firstNumber = operate(firstNumber, operator, secondNumber);
+        displayValue(firstNumber);
+        secondNumber = "";
+        operatorActive = !operatorActive;
+      }
+    }
+    // arithmetic operator
+    else{
+      if(firstNumber && secondNumber){
+        firstNumber = operate(firstNumber, operator, secondNumber);
+        displayValue(firstNumber);
+      }
+      else{
+        firstNumber = secondNumber;
+      }
+      operator = this.value;
+      operatorActive = !operatorActive;
+      secondNumber = "";
+    }
+  }
+  // operator last pressed
+  else{
+    if(digits.includes(this.value)){
+      operatorActive = !operatorActive;
+      secondNumber += this.value;
+      displayValue(secondNumber);
+    }
+    else{
+      operator = this.value;
+    }
+  }
+}
+
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", registerInput);
+});
 
