@@ -31,6 +31,7 @@ function operate(a, op, b){
     case 'x':
       return multiply(a, b);
     case '/':
+      if(b == 0) return ">:(";
       return divide(a, b);
     default:
       return "Error";
@@ -45,6 +46,13 @@ function clearDisplay(){
   calcDisplay.textContent = "";
 }
 
+function reset(){
+  firstNumber = "";
+  secondNumber = "";
+  operator = "";
+  operatorActive = false;
+}
+
 function registerInput(){
   // clear button
   if(this.value === "clr"){
@@ -54,10 +62,7 @@ function registerInput(){
       // operatorActive = false;
     }
     else{
-      firstNumber = "";
-      secondNumber = "";
-      operator = "";
-      operatorActive = false;
+      reset();
       clearDisplay();
     }
     return;
@@ -104,6 +109,9 @@ function registerInput(){
       operator = this.value;
     }
   }
+  
+  // dividing by zero
+  if(firstNumber == ">:(") reset();
 }
 
 document.querySelectorAll("button").forEach((button) => {
