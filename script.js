@@ -110,7 +110,7 @@ function registerInput(){
       displayValue(secondNumber);
       pressedEqual = false;
     }
-    else{
+    else if(this.value != "="){
       operator = this.value;
       pressedEqual = false;
     }
