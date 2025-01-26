@@ -2,6 +2,7 @@ let firstNumber = "";
 let operator = "";
 let secondNumber = "";
 let operatorActive = false;
+let pressedEqual = false;
 const calcDisplay = document.querySelector("#calc-display");
 const numericals = "0123456789.";
 
@@ -73,6 +74,7 @@ function registerInput(){
       if(this.value == "." && secondNumber === "") secondNumber += "0";
       secondNumber += this.value;
       displayValue(secondNumber);
+      pressedEqual = false;
     }
     // equal button
     else if(this.value === "="){
@@ -81,6 +83,7 @@ function registerInput(){
         displayValue(firstNumber);
         secondNumber = "";
         operatorActive = !operatorActive;
+        pressedEqual = true;
       }
     }
     // arithmetic operator
@@ -100,13 +103,16 @@ function registerInput(){
   // operator last pressed
   else{
     if(numericals.includes(this.value)){
+      if(pressedEqual) firstNumber = "";
       operatorActive = !operatorActive;
       if(this.value == ".") secondNumber += "0";
       secondNumber += this.value;
       displayValue(secondNumber);
+      pressedEqual = false;
     }
     else{
       operator = this.value;
+      pressedEqual = false;
     }
   }
   
