@@ -39,16 +39,25 @@ function operate(a, op, b){
   } 
 }
 
-function round(number){
-  // round to 6 decimal places
-  return Math.round(Number(number)*(10**6)) / (10**6);
+function roundToDisplay(number){
+  // round to specific number of decimal places
+  let sigFig;
+  if(number > 1000000 || number < -1000000){
+    sigFig = number.toString().length - 3;
+    return (Math.round(Number(number) / (10**sigFig)) * (10**sigFig)).toExponential();
+  }
+  else{
+    sigFig = 6;
+    return Math.round(Number(number)*(10**sigFig)) / (10**sigFig);
+  }
 }
 
 function displayValue(value){
   let displayed = value;
-  if(value.toString().slice(-1) != "." && 
-      value.toString().slice(-1) != "0")
-       displayed = round(value);
+  // round long numbers to fit display
+  if(value.toString().length > 7){
+    displayed = roundToDisplay(value);
+  }
   calcDisplay.textContent = displayed;
 }
 
