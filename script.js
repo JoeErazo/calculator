@@ -146,3 +146,58 @@ document.querySelectorAll("button").forEach((button) => {
   button.addEventListener("click", registerInput);
 });
 
+document.querySelector("body").addEventListener("keydown",(e) => {
+  switch(e.key){
+    case "1":
+      registerInput.bind(document.querySelector("#one"))();
+      break;
+    case "2":
+      registerInput.bind(document.querySelector("#two"))();
+      break;
+    case "3":
+      registerInput.bind(document.querySelector("#three"))();
+      break;
+    case "4":
+      registerInput.bind(document.querySelector("#four"))();
+      break;
+    case "5":
+      registerInput.bind(document.querySelector("#five"))();
+      break;
+    case "6":
+      registerInput.bind(document.querySelector("#six"))();
+      break;
+    case "7":
+      registerInput.bind(document.querySelector("#seven"))();
+      break;
+    case "8":
+      registerInput.bind(document.querySelector("#eigth"))();
+      break;
+    case "9":
+      registerInput.bind(document.querySelector("#nine"))();
+      break;
+    case "0":
+      registerInput.bind(document.querySelector("#zero"))();
+      break;
+    case "+":
+      registerInput.bind(document.querySelector("#plus"))();
+      break;
+    case "-":
+      registerInput.bind(document.querySelector("#minus"))();
+      break;
+    case "*":
+      registerInput.bind(document.querySelector("#times"))();
+      break;
+    case "/":
+      registerInput.bind(document.querySelector("#divide"))();
+      break;
+    case "Enter":
+    case "=":
+      registerInput.bind(document.querySelector("#equals"))();
+      break;
+    case "Backspace":
+      registerInput.bind(document.querySelector("#clear"))();
+      break;
+    default:
+      console.log(e.key);
+  }
+});
