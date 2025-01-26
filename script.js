@@ -70,9 +70,12 @@ function registerInput(){
   // number last pressed
   if(!operatorActive){
     // number pressed
-    if(numericals.includes(this.value)){
-      if(this.value == "." && secondNumber === "") secondNumber += "0";
-      secondNumber += this.value;
+    if(numericals.includes(this.value)){ 
+      if(this.value == "."){
+        if(secondNumber === "") secondNumber += "0.";
+        else if(!secondNumber.includes(".")) secondNumber += ".";
+      }
+      else secondNumber += this.value;
       displayValue(secondNumber);
       pressedEqual = false;
     }
