@@ -58,7 +58,6 @@ function registerInput(){
     if(secondNumber){
       secondNumber = "";
       clearDisplay();
-      // operatorActive = false;
     }
     else{
       reset();
