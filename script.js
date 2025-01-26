@@ -3,7 +3,7 @@ let operator = "";
 let secondNumber = "";
 let operatorActive = false;
 const calcDisplay = document.querySelector("#calc-display");
-const digits = "0123456789";
+const numericals = "0123456789.";
 
 function add(a, b){
   return Number(a) + Number(b);
@@ -69,7 +69,7 @@ function registerInput(){
   // number last pressed
   if(!operatorActive){
     // number pressed
-    if(digits.includes(this.value)){
+    if(numericals.includes(this.value)){
       secondNumber += this.value;
       displayValue(secondNumber);
     }
@@ -98,7 +98,7 @@ function registerInput(){
   }
   // operator last pressed
   else{
-    if(digits.includes(this.value)){
+    if(numericals.includes(this.value)){
       operatorActive = !operatorActive;
       secondNumber += this.value;
       displayValue(secondNumber);
