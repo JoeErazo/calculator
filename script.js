@@ -45,7 +45,9 @@ function round(number){
 }
 
 function displayValue(value){
-  calcDisplay.textContent = round(value);
+  let displayed = round(value);
+  if(value.toString().slice(-1) == ".") displayed += ".";
+  calcDisplay.textContent = displayed;
 }
 
 function clearDisplay(){
