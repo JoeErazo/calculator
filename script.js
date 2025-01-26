@@ -45,8 +45,10 @@ function round(number){
 }
 
 function displayValue(value){
-  let displayed = round(value);
-  if(value.toString().slice(-1) == ".") displayed += ".";
+  let displayed = value;
+  if(value.toString().slice(-1) != "." && 
+      value.toString().slice(-1) != "0")
+       displayed = round(value);
   calcDisplay.textContent = displayed;
 }
 
