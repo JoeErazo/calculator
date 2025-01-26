@@ -3,8 +3,10 @@
   #6A8040 (light green)
   #3D5E42 (dark green)
   #2a432e (darker green)
+  #d89140 (ochre)
   #BF8139 (light rust)
   #7d5425 (rust)
+  #885b28 (deep rust)
   #3C3B39 (gray)
   #2b2b2b (dark gray)
   #8a837a (light gray)
@@ -38,6 +40,14 @@ button {
   border-bottom: solid #7d5425;
   font-family: "Source Code Pro", sans-serif;
   flex-grow: 1;
+}
+
+button:hover {
+  background-color: #885b28;
+}
+
+button:active {
+  background-color: #d89140;
 }
 
 #calc-body {
