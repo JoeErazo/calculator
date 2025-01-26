@@ -70,6 +70,7 @@ function registerInput(){
   if(!operatorActive){
     // number pressed
     if(numericals.includes(this.value)){
+      if(this.value == "." && secondNumber === "") secondNumber += "0";
       secondNumber += this.value;
       displayValue(secondNumber);
     }
@@ -100,6 +101,7 @@ function registerInput(){
   else{
     if(numericals.includes(this.value)){
       operatorActive = !operatorActive;
+      if(this.value == ".") secondNumber += "0";
       secondNumber += this.value;
       displayValue(secondNumber);
     }
