@@ -31,6 +31,7 @@ function operate(a, op, b){
     case 'x':
       return multiply(a, b);
     case '/':
+      // send a message to users trying to divide by zero
       if(b == 0) return ">:(";
       return divide(a, b);
     default:
@@ -54,7 +55,6 @@ function reset(){
 }
 
 function registerInput(){
-  // clear button
   if(this.value === "clr"){
     if(secondNumber){
       secondNumber = "";
@@ -67,19 +67,18 @@ function registerInput(){
     return;
   }
 
-  // number last pressed
   if(!operatorActive){
-    // number pressed
-    if(numericals.includes(this.value)){ 
+    if(numericals.includes(this.value)){
       if(this.value == "."){
+        // add 0 to left of decimal point
         if(secondNumber === "") secondNumber += "0.";
+        // add decimal point only once
         else if(!secondNumber.includes(".")) secondNumber += ".";
       }
       else secondNumber += this.value;
       displayValue(secondNumber);
       pressedEqual = false;
     }
-    // equal button
     else if(this.value === "="){
       if(firstNumber !== "" && !operatorActive){
         firstNumber = operate(firstNumber, operator, secondNumber);
@@ -89,8 +88,8 @@ function registerInput(){
         pressedEqual = true;
       }
     }
-    // arithmetic operator
     else{
+      // handle chained operations
       if(firstNumber !== "" && secondNumber){
         firstNumber = operate(firstNumber, operator, secondNumber);
         displayValue(firstNumber);
@@ -103,23 +102,25 @@ function registerInput(){
       secondNumber = "";
     }
   }
-  // operator last pressed
   else{
     if(numericals.includes(this.value)){
+      // reset operation if pressing a number after equals
       if(pressedEqual) firstNumber = "";
-      operatorActive = !operatorActive;
+      // add 0 to left of decimal point
       if(this.value == ".") secondNumber += "0";
+      operatorActive = !operatorActive;
       secondNumber += this.value;
       displayValue(secondNumber);
       pressedEqual = false;
     }
+    // prevent setting operator to "="
     else if(this.value != "="){
       operator = this.value;
       pressedEqual = false;
     }
   }
   
-  // dividing by zero
+  // reset values after user tries to divide by zero
   if(firstNumber == ">:(") reset();
 }
 
