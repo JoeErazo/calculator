@@ -43,7 +43,6 @@ button {
 #calc-body {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-end; */
   align-items: center;
   width: 350px;
   height: 575px;
