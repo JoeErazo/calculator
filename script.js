@@ -3,7 +3,6 @@ let operator = "";
 let secondNumber = "";
 let operatorActive = false;
 const calcDisplay = document.querySelector("#calc-display");
-const operators = "+-x/";
 const digits = "0123456789";
 
 function add(a, b){
