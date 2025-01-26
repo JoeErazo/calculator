@@ -197,7 +197,5 @@ document.querySelector("body").addEventListener("keydown",(e) => {
     case "Backspace":
       registerInput.bind(document.querySelector("#clear"))();
       break;
-    default:
-      console.log(e.key);
   }
 });
