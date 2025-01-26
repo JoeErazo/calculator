@@ -39,8 +39,13 @@ function operate(a, op, b){
   } 
 }
 
+function round(number){
+  // round to 6 decimal places
+  return Math.round(Number(number)*(10**6)) / (10**6);
+}
+
 function displayValue(value){
-  calcDisplay.textContent = value;
+  calcDisplay.textContent = round(value);
 }
 
 function clearDisplay(){
