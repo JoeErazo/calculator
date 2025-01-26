@@ -75,7 +75,7 @@ function registerInput(){
     }
     // equal button
     else if(this.value === "="){
-      if(firstNumber && !operatorActive){
+      if(firstNumber !== "" && !operatorActive){
         firstNumber = operate(firstNumber, operator, secondNumber);
         displayValue(firstNumber);
         secondNumber = "";
@@ -84,7 +84,7 @@ function registerInput(){
     }
     // arithmetic operator
     else{
-      if(firstNumber && secondNumber){
+      if(firstNumber !== "" && secondNumber){
         firstNumber = operate(firstNumber, operator, secondNumber);
         displayValue(firstNumber);
       }
