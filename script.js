@@ -170,7 +170,7 @@ document.querySelector("body").addEventListener("keydown",(e) => {
       registerInput.bind(document.querySelector("#seven"))();
       break;
     case "8":
-      registerInput.bind(document.querySelector("#eigth"))();
+      registerInput.bind(document.querySelector("#eight"))();
       break;
     case "9":
       registerInput.bind(document.querySelector("#nine"))();
